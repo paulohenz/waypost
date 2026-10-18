@@ -1,0 +1,21 @@
+{
+  "name": "waypost",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Self-hosted web analytics: a tiny browser SDK and a Node collector.",
+  "license": "MIT",
+  "workspaces": [
+    "app",
+    "backend"
+  ],
+  "scripts": {
+    "build": "npm run build -w waypost-analytics && npm run build -w waypost-backend",
+    "test": "npm run test -w waypost-analytics && npm run test -w waypost-backend",
+    "typecheck": "npm run typecheck -w waypost-analytics && npm run typecheck -w waypost-backend",
+    "dev": "npm run build -w waypost-analytics && npm run dev -w waypost-backend",
+    "start": "npm run build && npm run start -w waypost-backend"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

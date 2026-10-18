@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Início — Waypost</title>
+    <meta name="robots" content="noindex" />
+    <script>
+      (function () {
+        var titles = { "/": "Início", "/cadernos": "Cadernos", "/oficinas": "Oficinas" };
+        var name = titles[location.pathname] || "Início";
+        document.title = name + " — Waypost";
+      })();
+    </script>
+    <script
+      src="/waypost.js"
+      data-endpoint="/collect"
+      data-site="demo"
+      data-auto-clicks="true"
+      data-flush-interval="2000"
+      defer
+    ></script>
+    <style>
+      :root {
+        color-scheme: light;
+        --paper: #f3efe4;
+        --ink: #1e1a16;
+        --muted: #6b6258;
+        --line: #e3d9c8;
+        --card: #fffdf8;
+        --blaze: #c4491d;
+        --blaze-ink: #fff8f3;
+        --pine: #234e43;
+        --shadow: 0 16px 40px rgba(48, 32, 14, 0.06);
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at top left, rgba(196, 73, 29, 0.08), transparent 32rem),
+          var(--paper);
+        color: var(--ink);
+        font: 16px/1.5 "Segoe UI", "Helvetica Neue", sans-serif;
+      }
+      a { color: var(--pine); }
+      a:hover { color: var(--blaze); }
+      button, .button {
+        font: inherit;
+        cursor: pointer;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        padding: 0.55rem 0.95rem;
+      }
+      button:focus-visible, a:focus-visible { outline: 2px solid var(--blaze); outline-offset: 3px; }
+      .wrap { width: min(1080px, calc(100% - 2rem)); margin: 0 auto; }
+      header.top {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        align-items: center;
+        padding: 1.25rem 0 0.5rem;
+      }
+      .mark { display: flex; gap: 0.75rem; align-items: center; text-decoration: none; color: inherit; }
+      .blaze {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 0.7rem;
+        background: var(--blaze);
+        color: var(--blaze-ink);
+        display: grid;
+        place-items: center;
+        font-family: Georgia, "Iowan Old Style", serif;
+        font-weight: 700;
+      }
+      .mark strong { display: block; font-family: Georgia, "Iowan Old Style", serif; font-size: 1.25rem; letter-spacing: -0.03em; }
+      .mark span { display: block; color: var(--muted); font-size: 0.82rem; }
+      .pill {
+        border: 1px solid var(--line);
+        background: var(--card);
+        border-radius: 999px;
+        padding: 0.3rem 0.7rem;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+      nav { display: flex; flex-wrap: wrap; gap: 0.5rem; padding: 0.5rem 0 1rem; }
+      nav a {
+        text-decoration: none;
+        border: 1px solid var(--line);
+        background: transparent;
+        color: var(--ink);
+        border-radius: 999px;
+        padding: 0.35rem 0.8rem;
+      }
+      nav a[aria-current="page"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+      .layout { display: grid; gap: 1rem; padding-bottom: 2.5rem; }
+      @media (min-width: 880px) {
+        .layout { grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.8fr); align-items: start; }
+      }
+      article, aside {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 1.25rem;
+        box-shadow: var(--shadow);
+      }
+      article { padding: 1.4rem 1.4rem 1.5rem; }
+      h1, h2 { font-family: Georgia, "Iowan Old Style", serif; font-weight: 600; letter-spacing: -0.03em; margin: 0; }
+      h1 { font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.05; }
+      h2 { font-size: 1.35rem; }
+      .lede { font-size: 1.08rem; max-width: 40rem; }
+      .muted { color: var(--muted); }
+      .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+      .primary { background: var(--blaze); color: var(--blaze-ink); }
+      .ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+      aside { padding: 1.1rem 1.15rem 1.2rem; }
+      .stats-head { display: flex; justify-content: space-between; gap: 0.75rem; align-items: center; }
+      #refresh { background: var(--pine); color: white; }
+      #stats-status { min-height: 1.4rem; }
+      .stat-block { margin-top: 0.9rem; }
+      .stat-block h3 { margin: 0 0 0.35rem; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+      .row { display: flex; justify-content: space-between; gap: 1rem; padding: 0.35rem 0; border-top: 1px solid var(--line); font-size: 0.95rem; }
+      .row b { font-variant-numeric: tabular-nums; }
+      .id { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.78rem; word-break: break-all; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="top">
+        <a class="mark" href="/" data-spa>
+          <span class="blaze">W</span>
+          <span>
+            <strong>Waypost</strong>
+            <span>Medição local, sem cookies</span>
+          </span>
+        </a>
+        <span class="pill">site <strong>demo</strong></span>
+      </header>
+      <nav>
+        <a href="/" data-spa data-track="nav-inicio">Início</a>
+        <a href="/cadernos" data-spa data-track="nav-cadernos">Cadernos</a>
+        <a href="/oficinas" data-spa data-track="nav-oficinas">Oficinas</a>
+      </nav>
+      <div class="layout">
+        <article>
+          <p class="muted" id="kicker">Pageview automático</p>
+          <h1 id="heading">Um marco para cada visita</h1>
+          <p class="lede" id="copy">
+            Esta página instala o SDK pelo script tag e fala com o coletor neste mesmo servidor.
+            Navegue, clique e dispare um evento. Os números ao lado saem de <code>/stats</code>.
+          </p>
+          <div class="actions" id="actions"></div>
+          <p class="muted">Visitante anônimo neste navegador: <span class="id" id="visitor">ainda não criado</span></p>
+        </article>
+        <aside>
+          <div class="stats-head">
+            <h2>Estatísticas</h2>
+            <button id="refresh" type="button">Atualizar</button>
+          </div>
+          <p id="stats-status" class="muted">Carregando…</p>
+          <div id="stats-body"></div>
+        </aside>
+      </div>
+    </div>
+    <script defer>
+      (function () {
+        var pages = {
+          "/": {
+            kicker: "Pageview automático",
+            heading: "Um marco para cada visita",
+            copy: "Esta página instala o SDK pelo script tag e fala com o coletor neste mesmo servidor. Navegue, clique e dispare um evento. Os números ao lado saem de /stats.",
+            actions: [
+              { href: "/cadernos", spa: true, track: "nav-cadernos", label: "Ver cadernos", kind: "primary" },
+              { href: "https://example.com/docs", label: "Abrir example.com", kind: "ghost", id: "outbound" }
+            ]
+          },
+          "/cadernos": {
+            kicker: "Clique com data-track",
+            heading: "Cadernos de campo",
+            copy: "O botão abaixo carrega data-track=\"reservar-caderno\". O SDK registra o clique sem você chamar track().",
+            actions: [
+              { track: "reservar-caderno", label: "Reservar um caderno", kind: "primary", id: "reservar" }
+            ]
+          },
+          "/oficinas": {
+            kicker: "Evento personalizado",
+            heading: "Oficinas de sábado",
+            copy: "Um botão marca o clique. O outro chama waypost.track(\"newsletter\") com uma propriedade.",
+            actions: [
+              { track: "lista-oficina", label: "Entrar na lista", kind: "primary", id: "lista" },
+              { event: "newsletter", label: "Avisar por carta", kind: "ghost", id: "carta" }
+            ]
+          }
+        };
+
+        var heading = document.getElementById("heading");
+        var kicker = document.getElementById("kicker");
+        var copy = document.getElementById("copy");
+        var actions = document.getElementById("actions");
+        var visitor = document.getElementById("visitor");
+        var status = document.getElementById("stats-status");
+        var statsBody = document.getElementById("stats-body");
+
+        function current() {
+          return pages[location.pathname] || pages["/"];
+        }
+
+        function applyTitle() {
+          var titles = { "/": "Início", "/cadernos": "Cadernos", "/oficinas": "Oficinas" };
+          document.title = (titles[location.pathname] || "Início") + " — Waypost";
+        }
+
+        window.addEventListener("popstate", applyTitle, true);
+
+        function render() {
+          var page = current();
+          applyTitle();
+          kicker.textContent = page.kicker;
+          heading.textContent = page.heading;
+          copy.textContent = page.copy;
+          actions.innerHTML = "";
+          page.actions.forEach(function (action) {
+            var el;
+            if (action.href) {
+              el = document.createElement("a");
+              el.href = action.href;
+              el.className = "button " + action.kind;
+              if (action.spa) el.setAttribute("data-spa", "");
+              if (action.track) el.setAttribute("data-track", action.track);
+              if (action.id) el.id = action.id;
+              if (!action.spa && action.href.indexOf("http") === 0) {
+                el.target = "_blank";
+                el.rel = "noreferrer";
+              }
+            } else {
+              el = document.createElement("button");
+              el.type = "button";
+              el.className = action.kind;
+              if (action.track) el.setAttribute("data-track", action.track);
+              if (action.id) el.id = action.id;
+              if (action.event) {
+                el.addEventListener("click", function () {
+                  if (!window.waypost) return;
+                  window.waypost.track(action.event, { origem: "exemplo" });
+                  window.waypost.flush();
+                  setTimeout(refresh, 250);
+                });
+              }
+            }
+            el.textContent = action.label;
+            actions.appendChild(el);
+          });
+          document.querySelectorAll("nav a").forEach(function (link) {
+            if (link.getAttribute("href") === location.pathname) link.setAttribute("aria-current", "page");
+            else link.removeAttribute("aria-current");
+          });
+          var id = "";
+          try { id = localStorage.getItem("waypost_vid") || ""; } catch (e) { id = ""; }
+          visitor.textContent = id || "ainda não criado";
+        }
+
+        document.addEventListener("click", function (event) {
+          var link = event.target.closest("a[data-spa]");
+          if (!link) return;
+          event.preventDefault();
+          var href = link.getAttribute("href");
+          if (!pages[href] && href !== "/") return;
+          applyTitleFor(href);
+          history.pushState({}, "", href);
+          render();
+        });
+
+        document.addEventListener("click", function (event) {
+          var target = event.target;
+          if (!target || !target.closest) return;
+          if (!target.closest("[data-track], a[href]")) return;
+          setTimeout(refresh, 300);
+        });
+
+        function applyTitleFor(href) {
+          var titles = { "/": "Início", "/cadernos": "Cadernos", "/oficinas": "Oficinas" };
+          document.title = (titles[href] || "Início") + " — Waypost";
+        }
+
+        function row(label, value) {
+          var line = document.createElement("div");
+          line.className = "row";
+          var name = document.createElement("span");
+          name.textContent = label;
+          var count = document.createElement("b");
+          count.textContent = String(value);
+          line.appendChild(name);
+          line.appendChild(count);
+          return line;
+        }
+
+        function block(title, rows, empty) {
+          var section = document.createElement("div");
+          section.className = "stat-block";
+          var h = document.createElement("h3");
+          h.textContent = title;
+          section.appendChild(h);
+          if (!rows.length) {
+            var note = document.createElement("p");
+            note.className = "muted";
+            note.textContent = empty;
+            section.appendChild(note);
+            return section;
+          }
+          rows.forEach(function (item) { section.appendChild(item); });
+          return section;
+        }
+
+        function refresh() {
+          status.textContent = "Atualizando…";
+          if (window.waypost && window.waypost.flush) window.waypost.flush();
+          return new Promise(function (resolve) {
+            setTimeout(resolve, 250);
+          }).then(function () {
+            var query = "siteId=demo";
+            return Promise.all([
+              fetch("/stats/timeseries?" + query + "&interval=day").then(function (r) { return r.json(); }),
+              fetch("/stats/pages?" + query).then(function (r) { return r.json(); }),
+              fetch("/stats/referrers?" + query).then(function (r) { return r.json(); }),
+              fetch("/stats/events?" + query).then(function (r) { return r.json(); })
+            ]);
+          }).then(function (parts) {
+            var series = parts[0], pages = parts[1], referrers = parts[2], events = parts[3];
+            if (!series.totals || !pages.pages) throw new Error("bad stats");
+            statsBody.innerHTML = "";
+            var totals = document.createElement("div");
+            totals.className = "stat-block";
+            totals.appendChild(row("Pageviews", series.totals.pageviews));
+            totals.appendChild(row("Visitantes únicos", series.totals.visitors));
+            statsBody.appendChild(totals);
+            statsBody.appendChild(block("Páginas", pages.pages.map(function (page) {
+              return row(page.path, page.pageviews);
+            }), "Nenhuma página neste período."));
+            statsBody.appendChild(block("Origens", referrers.referrers.map(function (item) {
+              return row(item.host, item.visits);
+            }), "Nenhuma origem externa."));
+            statsBody.appendChild(block("Eventos e cliques", events.events.map(function (item) {
+              return row(item.name + " (" + item.type + ")", item.count);
+            }), "Nenhum evento neste período."));
+            status.textContent = "Últimos 30 dias, site demo.";
+            var id = "";
+            try { id = localStorage.getItem("waypost_vid") || ""; } catch (e) { id = ""; }
+            visitor.textContent = id || "ainda não criado";
+          }).catch(function () {
+            status.textContent = "Não foi possível ler as estatísticas. O coletor está no ar?";
+          });
+        }
+
+        document.getElementById("refresh").addEventListener("click", function () { refresh(); });
+        window.addEventListener("popstate", render);
+        render();
+        refresh();
+      })();
+    </script>
+  </body>
+</html>
