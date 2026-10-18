@@ -1,0 +1,64 @@
+{
+  "name": "waypost-analytics",
+  "version": "0.1.0",
+  "description": "Tiny privacy-friendly SDK for self-hosted pageviews, custom events, and click analytics.",
+  "keywords": [
+    "analytics",
+    "web-analytics",
+    "pageview",
+    "privacy",
+    "self-hosted",
+    "tracking",
+    "beacon",
+    "waypost"
+  ],
+  "license": "MIT",
+  "author": "Paulo Henz",
+  "homepage": "https://github.com/paulohenz/waypost#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulohenz/waypost.git",
+    "directory": "app"
+  },
+  "bugs": {
+    "url": "https://github.com/paulohenz/waypost/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "unpkg": "./dist/waypost.js",
+  "jsdelivr": "./dist/waypost.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup --config tsup.config.ts && tsup --config tsup.iife.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build && npm run test"
+  },
+  "devDependencies": {
+    "happy-dom": "^20.0.10",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}
