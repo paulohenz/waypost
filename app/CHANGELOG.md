@@ -3,6 +3,10 @@
 All notable changes to `waypost-analytics` are documented in this file.
 The package follows [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 0.1.1 — 2026-10-18
+
+- Rewrote the package README with a full API reference, privacy notes, and examples. No code changes.
+
 ## 0.1.0 — 2026-10-18
 
 - Initial release.

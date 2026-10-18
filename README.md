@@ -6,7 +6,7 @@ Analytics web auto-hospedado para pageviews, eventos e cliques.
 [![licença MIT](https://img.shields.io/github/license/paulohenz/waypost)](https://github.com/paulohenz/waypost/blob/main/LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/paulohenz/waypost/ci.yml?branch=main&label=CI)](https://github.com/paulohenz/waypost/actions/workflows/ci.yml)
 
-O navegador mede a visita com um SDK pequeno. Um coletor em Node.js guarda os eventos em SQLite e responde contagens por período, página, referenciador e evento. O pacote publicado é [`waypost-analytics@0.1.0`](https://www.npmjs.com/package/waypost-analytics), na conta npm [plsh](https://www.npmjs.com/~plsh). O código está em [github.com/paulohenz/waypost](https://github.com/paulohenz/waypost).
+O navegador mede a visita com um SDK pequeno. Um coletor em Node.js guarda os eventos em SQLite e responde contagens por período, página, referenciador e evento. O pacote publicado é [`waypost-analytics@0.1.1`](https://www.npmjs.com/package/waypost-analytics), na conta npm [plsh](https://www.npmjs.com/~plsh). O código está em [github.com/paulohenz/waypost](https://github.com/paulohenz/waypost).
 
 O npm mostra o guia em inglês, em [`app/README.md`](app/README.md).
 
@@ -64,7 +64,7 @@ O arquivo publicado também está no unpkg e no jsDelivr, nos campos `unpkg` e `
 
 ```html
 <script
-  src="https://unpkg.com/waypost-analytics@0.1.0/dist/waypost.js"
+  src="https://unpkg.com/waypost-analytics@0.1.1/dist/waypost.js"
   data-endpoint="https://analytics.example.com/collect"
   data-site="demo"
   data-auto-clicks="true"
@@ -72,7 +72,7 @@ O arquivo publicado também está no unpkg e no jsDelivr, nos campos `unpkg` e `
 ></script>
 ```
 
-O mesmo arquivo no jsDelivr é `https://cdn.jsdelivr.net/npm/waypost-analytics@0.1.0/dist/waypost.js`. Com `data-endpoint` e `data-site`, o script chama `init` sozinho. Depois do carregamento, `window.waypost` expõe `init`, `track`, `flush` e `shutdown`.
+O mesmo arquivo no jsDelivr é `https://cdn.jsdelivr.net/npm/waypost-analytics@0.1.1/dist/waypost.js`. Com `data-endpoint` e `data-site`, o script chama `init` sozinho. Depois do carregamento, `window.waypost` expõe `init`, `track`, `flush` e `shutdown`.
 
 | Atributo | Padrão | Efeito |
 | --- | --- | --- |

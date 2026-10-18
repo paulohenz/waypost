@@ -6,7 +6,7 @@ Privacy-friendly browser SDK for [Waypost](https://github.com/paulohenz/waypost)
 [![MIT license](https://img.shields.io/github/license/paulohenz/waypost)](https://github.com/paulohenz/waypost/blob/main/LICENSE)
 [![CI](https://img.shields.io/github/actions/workflow/status/paulohenz/waypost/ci.yml?branch=main&label=CI)](https://github.com/paulohenz/waypost/actions/workflows/ci.yml)
 
-`waypost-analytics@0.1.0` is published on npm by [plsh](https://www.npmjs.com/~plsh). The script is about 4 KB gzipped (about 10 KB minified), has no runtime dependencies, and posts to a collector you host. The matching Node collector lives in the [Waypost repository](https://github.com/paulohenz/waypost) under `backend/`. The Portuguese project guide is the [repository README](https://github.com/paulohenz/waypost#readme).
+`waypost-analytics@0.1.1` is published on npm by [plsh](https://www.npmjs.com/~plsh). The script is about 4 KB gzipped (about 10 KB minified), has no runtime dependencies, and posts to a collector you host. The matching Node collector lives in the [Waypost repository](https://github.com/paulohenz/waypost) under `backend/`. The Portuguese project guide is the [repository README](https://github.com/paulohenz/waypost#readme).
 
 Any endpoint that accepts the JSON batch described below works with this SDK.
 
@@ -54,7 +54,7 @@ Host `dist/waypost.js` yourself, or load the published file. The package `unpkg`
 
 ```html
 <script
-  src="https://unpkg.com/waypost-analytics@0.1.0/dist/waypost.js"
+  src="https://unpkg.com/waypost-analytics@0.1.1/dist/waypost.js"
   data-endpoint="https://analytics.example.com/collect"
   data-site="demo"
   data-auto-clicks="true"
@@ -62,7 +62,7 @@ Host `dist/waypost.js` yourself, or load the published file. The package `unpkg`
 ></script>
 ```
 
-jsDelivr serves the same file at `https://cdn.jsdelivr.net/npm/waypost-analytics@0.1.0/dist/waypost.js`. With `data-endpoint` and `data-site`, the script calls `init` on its own. After it loads, `window.waypost` exposes `init`, `track`, `flush`, and `shutdown`.
+jsDelivr serves the same file at `https://cdn.jsdelivr.net/npm/waypost-analytics@0.1.1/dist/waypost.js`. With `data-endpoint` and `data-site`, the script calls `init` on its own. After it loads, `window.waypost` exposes `init`, `track`, `flush`, and `shutdown`.
 
 | Attribute | Default | Meaning |
 | --- | --- | --- |

@@ -1,6 +1,6 @@
 {
   "name": "waypost-analytics",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Tiny privacy-friendly SDK for self-hosted pageviews, custom events, and click analytics.",
   "keywords": [
     "analytics",
